@@ -94,14 +94,14 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="113" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="textFieldRound1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="passwordFieldRound1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="labelPassword" min="-2" max="-2" attributes="0"/>
+                          <Component id="username" alignment="0" max="32767" attributes="0"/>
+                          <Component id="password" alignment="0" max="32767" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="title" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelUsername" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="buttonRound1" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="login" min="-2" pref="140" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                   </Group>
@@ -111,24 +111,24 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <Component id="title" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelUsername" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="textFieldRound1" min="-2" max="-2" attributes="0"/>
+                      <Component id="username" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelPassword" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="passwordFieldRound1" min="-2" max="-2" attributes="0"/>
+                      <Component id="password" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="buttonRound1" min="-2" max="-2" attributes="0"/>
+                      <Component id="login" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="title">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Helvetica Neue" size="24" style="0"/>
@@ -139,7 +139,7 @@
                 <Property name="text" type="java.lang.String" value="SIMPO"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="labelUsername">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="c3" red="2e" type="rgb"/>
@@ -147,7 +147,7 @@
                 <Property name="text" type="java.lang.String" value="Nome de usu&#xe1;rio:"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.textField.TextFieldRound" name="textFieldRound1">
+            <Component class="org.edisoncor.gui.textField.TextFieldRound" name="username">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -157,10 +157,10 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textFieldRound1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="usernameActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="labelPassword">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="c3" red="2e" type="rgb"/>
@@ -168,7 +168,7 @@
                 <Property name="text" type="java.lang.String" value="Senha:"/>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.passwordField.PasswordFieldRound" name="passwordFieldRound1">
+            <Component class="org.edisoncor.gui.passwordField.PasswordFieldRound" name="password">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -178,13 +178,16 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="org.edisoncor.gui.button.ButtonRound" name="buttonRound1">
+            <Component class="org.edisoncor.gui.button.ButtonRound" name="login">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="c3" red="2e" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Login"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

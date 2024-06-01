@@ -14,7 +14,8 @@ public class SIMPO {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new View.Login().setVisible(true);
+//        new View.Login().setVisible(true);
+        new View.Dash().setVisible(true);
     }
     
 }
