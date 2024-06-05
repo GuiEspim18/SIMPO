@@ -166,11 +166,15 @@ public class Dash_GUI extends javax.swing.JFrame {
                     int selectedRow = table.getSelectedRow();
                     if (selectedRow != -1) {
                         Object id = table.getValueAt(selectedRow, 0);
-                        new View.Details_DAO((int) id).setVisible(true);
+                        viewDetails((int) id);
                     }
                 }
             }
         });
+    }
+    
+    private void viewDetails(int id) {
+        new View.Details_DAO((int) id).setVisible(true);
     }
     
     /**

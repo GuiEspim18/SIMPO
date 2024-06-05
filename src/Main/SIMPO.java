@@ -16,8 +16,7 @@ public class SIMPO {
      */
     public static void main(String[] args) {
         Users_DAO users = new Users_DAO();
-//        new View.Login_GUI(users).setVisible(true);
-        new View.Dash_GUI().setVisible(true);
+        new View.Login_GUI(users).setVisible(true);
     }
     
 }
