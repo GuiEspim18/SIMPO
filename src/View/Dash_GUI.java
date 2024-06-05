@@ -30,7 +30,6 @@ public class Dash_GUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         header = new javax.swing.JPanel();
         title = new javax.swing.JLabel();
-        reload = new org.edisoncor.gui.button.ButtonRound();
         line1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -66,31 +65,18 @@ public class Dash_GUI extends javax.swing.JFrame {
         title.setText("SIMPO - Dashboard");
         title.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
-        reload.setBackground(new java.awt.Color(255, 255, 255));
-        reload.setForeground(new java.awt.Color(46, 195, 255));
-        reload.setText("Recarregar");
-        reload.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reloadActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
         header.setLayout(headerLayout);
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(reload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
-                .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(reload, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -234,10 +220,6 @@ public class Dash_GUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void reloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reloadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_reloadActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -290,7 +272,6 @@ public class Dash_GUI extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel line1;
     private javax.swing.JPanel line2;
-    private org.edisoncor.gui.button.ButtonRound reload;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }
