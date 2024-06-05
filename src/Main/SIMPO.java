@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package Main;
-import Model.Users_GUI;
+import Model.Users_DAO;
 
 /**
  *
@@ -16,7 +16,7 @@ public class SIMPO {
      */
     public static void main(String[] args) {
 //        new View.Login().setVisible(true);
-        Users_GUI users = new Users_GUI();
+        Users_DAO users = new Users_DAO();
         new View.Login_GUI(users).setVisible(true);
     }
     

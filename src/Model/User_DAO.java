@@ -8,12 +8,12 @@ package Model;
  *
  * @author guiespim
  */
-public class User_GUI {
+public class User_DAO {
     String username;
     String email;
     String password;
     
-    public User_GUI(String username, String email, String password) {
+    public User_DAO(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;

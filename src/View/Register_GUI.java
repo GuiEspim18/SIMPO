@@ -4,8 +4,8 @@
  */
 package View;
 import javax.swing.*;
-import Model.User_GUI;
-import Model.Users_GUI;
+import Model.User_DAO;
+import Model.Users_DAO;
 
 /**
  *
@@ -13,7 +13,7 @@ import Model.Users_GUI;
  */
 public class Register_GUI extends javax.swing.JFrame {
     
-    Users_GUI users;
+    Users_DAO users;
 
     /**
      * Creates new form Register_GUI
@@ -22,7 +22,7 @@ public class Register_GUI extends javax.swing.JFrame {
         initComponents();
     }
     
-    public Register_GUI(Users_GUI users) {
+    public Register_GUI(Users_DAO users) {
         this.users = users;
         initComponents();
     }
@@ -216,7 +216,7 @@ public class Register_GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Preencha todos os campos!", "", JOptionPane.ERROR_MESSAGE);
         } else {
             if (password.equals(repeatPassword)) {
-                User_GUI user = new User_GUI(username, email, password);
+                User_DAO user = new User_DAO(username, email, password);
                 boolean register = users.register(user, this);
                 if (register) {
                   new View.Login_GUI(users).setVisible(true);

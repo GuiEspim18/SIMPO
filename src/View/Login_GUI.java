@@ -6,8 +6,8 @@ package View;
 
 import java.awt.Color;
 import javax.swing.*;
-import Model.Users_GUI;
-import Model.User_GUI;
+import Model.Users_DAO;
+import Model.User_DAO;
 
 /**
  *
@@ -15,7 +15,7 @@ import Model.User_GUI;
  */
 public class Login_GUI extends javax.swing.JFrame {
     
-    Users_GUI users;
+    Users_DAO users;
 
     /**
      * Creates new form Login
@@ -24,7 +24,7 @@ public class Login_GUI extends javax.swing.JFrame {
         initComponents();
     }
     
-    public Login_GUI(Users_GUI users) {
+    public Login_GUI(Users_DAO users) {
         this.users = users;
         initComponents();
     }
@@ -176,7 +176,7 @@ public class Login_GUI extends javax.swing.JFrame {
         if (username.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Preencha todos os campos necessários!", "", JOptionPane.ERROR_MESSAGE);
         } else {
-            User_GUI user = new User_GUI(username, "", password);
+            User_DAO user = new User_DAO(username, "", password);
             boolean login = users.login(user, this);
             if (login) {
                 setVisible(false);
