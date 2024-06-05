@@ -3,18 +3,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
+import Model.Historic_DAO;
+import Model.Sensor_DAO;
+import Model.Register_DAO;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.awt.Color;
+import java.text.SimpleDateFormat;
 
 /**
  *
  * @author guiespim
  */
 public class Details_DAO extends javax.swing.JFrame {
+    
+    Sensor_DAO sensor;
 
     /**
      * Creates new form Details_DAO
      */
     public Details_DAO() {
         initComponents();
+    }
+    
+    public Details_DAO(int id) {
+        for (Sensor_DAO sensor : new Historic_DAO().historic) {
+            for (Register_DAO register : sensor.register) {
+                if (register.register == id) {
+                    this.sensor = sensor;
+                    this.sensor.register = new ArrayList<Register_DAO>(Arrays.asList(register));
+                }
+            }
+        }
+        initComponents();
+        load();
     }
 
     /**
@@ -47,6 +69,8 @@ public class Details_DAO extends javax.swing.JFrame {
         oxygenDissolved = new javax.swing.JLabel();
         microplastic = new javax.swing.JLabel();
         mercury = new javax.swing.JLabel();
+        labelId = new javax.swing.JLabel();
+        id = new javax.swing.JLabel();
         statusBody = new javax.swing.JPanel();
         statusText = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
@@ -55,7 +79,7 @@ public class Details_DAO extends javax.swing.JFrame {
         lon = new javax.swing.JLabel();
         country = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -117,22 +141,28 @@ public class Details_DAO extends javax.swing.JFrame {
         labelMercury.setText("Mercúrio:");
 
         date.setForeground(new java.awt.Color(255, 255, 255));
-        date.setText("aaaa");
+        date.setText("0");
 
         pH.setForeground(new java.awt.Color(255, 255, 255));
-        pH.setText("aaaa");
+        pH.setText("0");
 
         temperature.setForeground(new java.awt.Color(255, 255, 255));
-        temperature.setText("aaaa");
+        temperature.setText("0");
 
         oxygenDissolved.setForeground(new java.awt.Color(255, 255, 255));
-        oxygenDissolved.setText("aaaa");
+        oxygenDissolved.setText("0");
 
         microplastic.setForeground(new java.awt.Color(255, 255, 255));
-        microplastic.setText("aaaa");
+        microplastic.setText("0");
 
         mercury.setForeground(new java.awt.Color(255, 255, 255));
-        mercury.setText("aaaa");
+        mercury.setText("0");
+
+        labelId.setForeground(new java.awt.Color(255, 255, 255));
+        labelId.setText("ID:");
+
+        id.setForeground(new java.awt.Color(255, 255, 255));
+        id.setText("0");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -150,7 +180,12 @@ public class Details_DAO extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pH)
                             .addComponent(temperature)
-                            .addComponent(date)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(date)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelId)
+                                .addGap(30, 30, 30)
+                                .addComponent(id))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelOxygenDissolved)
@@ -161,7 +196,7 @@ public class Details_DAO extends javax.swing.JFrame {
                             .addComponent(mercury)
                             .addComponent(microplastic)
                             .addComponent(oxygenDissolved))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,7 +204,9 @@ public class Details_DAO extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelDate)
-                    .addComponent(date))
+                    .addComponent(date)
+                    .addComponent(labelId)
+                    .addComponent(id))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPH)
@@ -216,19 +253,19 @@ public class Details_DAO extends javax.swing.JFrame {
         );
 
         name.setForeground(new java.awt.Color(51, 51, 51));
-        name.setText("aaaa");
+        name.setText("0");
 
         model.setForeground(new java.awt.Color(51, 51, 51));
-        model.setText("aaaa");
+        model.setText("0");
 
         lat.setForeground(new java.awt.Color(51, 51, 51));
-        lat.setText("aaaa");
+        lat.setText("0");
 
         lon.setForeground(new java.awt.Color(51, 51, 51));
-        lon.setText("aaaa");
+        lon.setText("0");
 
         country.setForeground(new java.awt.Color(51, 51, 51));
-        country.setText("aaaa");
+        country.setText("0");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -300,9 +337,35 @@ public class Details_DAO extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(425, 333));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void load() {
+        this.name.setText(this.sensor.name);
+        this.model.setText(this.sensor.model);
+        this.lat.setText(this.sensor.lat);
+        this.lon.setText(this.sensor.lon);
+        this.country.setText(this.sensor.country);
+        Register_DAO currRegister = this.sensor.register.get(0);
+        if (currRegister.pH < 6.5 || currRegister.pH > 8.5) {
+            this.statusBody.setBackground(Color.RED);
+            this.statusText.setText("RUIM");
+        }
+        if (currRegister.mercury > 0.001) {
+            this.statusBody.setBackground(Color.RED);
+            this.statusText.setText("RUIM");
+        }
+        SimpleDateFormat formater = new SimpleDateFormat("dd/MM/yyyy");
+        this.id.setText(currRegister.register + "");
+        this.date.setText(formater.format(currRegister.date));
+        this.pH.setText(currRegister.pH + "");
+        this.temperature.setText(currRegister.temperature + " c°");
+        this.oxygenDissolved.setText(currRegister.dissolvedOxygen + " mg/L");
+        this.microplastic.setText(currRegister.microplastic + " mg/L");
+        this.mercury.setText(String.format("%.4f", currRegister.mercury).replace(",", ".") + " mg/L (1 µg/L)");
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -342,10 +405,12 @@ public class Details_DAO extends javax.swing.JFrame {
     private javax.swing.JLabel country;
     private javax.swing.JLabel date;
     private javax.swing.JPanel header;
+    private javax.swing.JLabel id;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelCountry;
     private javax.swing.JLabel labelDate;
+    private javax.swing.JLabel labelId;
     private javax.swing.JLabel labelLat;
     private javax.swing.JLabel labelLon;
     private javax.swing.JLabel labelMercury;

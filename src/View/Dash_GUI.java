@@ -96,7 +96,7 @@ public class Dash_GUI extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Sensor", "Data", "PH", "Temperatura", "Mecúrio", "Status"
+                "Id", "Data", "PH", "Temperatura", "Mecúrio", "Status"
             }
         ));
         jScrollPane1.setViewportView(table);
@@ -149,14 +149,14 @@ public class Dash_GUI extends javax.swing.JFrame {
                 if (register.mercury > 0.001) {
                     status = "Ruim";
                 }
-                rows.add(new Object[] { (int) register.id, formater.format(register.date), register.pH, register.temperature + " c°", String.format("%.4f", register.mercury).replace(",", ".") + " mg/L (1 µg/L)", status });
+                rows.add(new Object[] { register.register, formater.format(register.date), register.pH, register.temperature + " c°", String.format("%.4f", register.mercury).replace(",", ".") + " mg/L (1 µg/L)", status });
             }
         }
         Object[][] data = new Object[rows.size()][];
         for (int i = 0; i < rows.size(); i++) {
             data[i] = rows.get(i);
         }
-        String[] columns = new String[] {"Sensor", "Data", "PH", "Temperatura", "Mecúrio", "Status"};    
+        String[] columns = new String[] {"Id", "Data", "PH", "Temperatura", "Mecúrio", "Status"};    
         javax.swing.table.DefaultTableModel tableModel = new javax.swing.table.DefaultTableModel(data, columns);
         this.table.setModel(tableModel);
         this.table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
@@ -165,12 +165,8 @@ public class Dash_GUI extends javax.swing.JFrame {
                 if (!event.getValueIsAdjusting()) {
                     int selectedRow = table.getSelectedRow();
                     if (selectedRow != -1) {
-                        StringBuilder message = new StringBuilder("Valores da linha:\n");
-                        for (int col = 0; col < table.getColumnCount(); col++) {
-                            Object value = table.getValueAt(selectedRow, col);
-                            
-                        }
-                        JOptionPane.showMessageDialog(null, message.toString());
+                        Object id = table.getValueAt(selectedRow, 0);
+                        new View.Details_DAO((int) id).setVisible(true);
                     }
                 }
             }
