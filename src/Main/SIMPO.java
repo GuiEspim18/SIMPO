@@ -15,9 +15,9 @@ public class SIMPO {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        new View.Login().setVisible(true);
         Users_DAO users = new Users_DAO();
-        new View.Login_GUI(users).setVisible(true);
+//        new View.Login_GUI(users).setVisible(true);
+        new View.Dash_GUI().setVisible(true);
     }
     
 }
