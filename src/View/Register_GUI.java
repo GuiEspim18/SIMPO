@@ -52,6 +52,7 @@ public class Register_GUI extends javax.swing.JFrame {
         register = new org.edisoncor.gui.button.ButtonRound();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new java.awt.GridLayout());
